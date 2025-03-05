@@ -29,12 +29,43 @@ class Controller{
         System.out.println("1 row added");
     }
 
+    // READ - fetch - select
+    public static void readRow(ArrayList<Row> table){
+        // read by id
+        Scanner in = new Scanner(System.in);
+        int id = -1;
+        
+        System.out.print("Enter id of product to search for: ");
+        id = in.nextInt();
+
+        for (Row r : table){
+            if (r.id == id){
+                System.out.println(r);
+                break;
+            }
+        }
+
+        if (id == -1){
+            System.out.println("Error: product not found.");
+        }
+
+
+        // read by product name
+        // search by a range
+    }
+
+    // UPDATE
+    // update - make a change to a row
+    // change product name?
+    // change price?
+    // TODO: Menu system that will prompt the user to request a different way to change
+    
 
     public static void main(String[] args) {
         ArrayList<Row> table = new ArrayList<Row>();
 
-        table.add(new Row(312, "Chai", 13.5));
-        table.add(new Row(12, "Dates", 4.5));
-        table.add(new Row(45, "broom", 12.30));
+        table.add(new Row(312, "Chai", 13.5)); // 0
+        table.add(new Row(12, "Dates", 4.5)); // 1
+        table.add(new Row(45, "broom", 12.30)); // 2
     }
 }

@@ -18,4 +18,10 @@ public class Row {
         this.prodName = prodName;
         this.price = price;
     }
+
+    // toString 
+    // TODO: Format string better
+    public String toString(){
+        return this.id + " " + this.prodName + " " + this.price + "\n";
+    }
 }
