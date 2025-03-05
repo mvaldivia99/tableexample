@@ -59,7 +59,29 @@ class Controller{
     // change product name?
     // change price?
     // TODO: Menu system that will prompt the user to request a different way to change
-    
+    public static void updateRow(ArrayList<Row> table){
+        // update price of row
+        Scanner in = new Scanner(System.in);
+        int id = -1, index = -1;
+        
+        System.out.print("Enter id of product to search for: ");
+        id = in.nextInt();
+
+        for (int i = 0; i < table.size(); i++){
+            if (table.get(i).id == id){
+                index = i;
+                break;
+            }
+        }
+
+        if (id == -1){
+            System.out.println("Error: product not found.");
+        } else {
+            System.out.print("Enter new price for product " + table.get(index).id + ": ");
+            table.get(index).price = in.nextDouble();
+            System.out.println("1 row updated");
+        }
+    }
 
     public static void main(String[] args) {
         ArrayList<Row> table = new ArrayList<Row>();
