@@ -49,7 +49,7 @@ class Controller{
             System.out.println("Error: product not found.");
         }
 
-
+        in.close();
         // read by product name
         // search by a range
     }
@@ -81,7 +81,35 @@ class Controller{
             table.get(index).price = in.nextDouble();
             System.out.println("1 row updated");
         }
+
+        in.close();
     }
+
+    public static void deleteRow(ArrayList<Row> table){
+        // delete by id
+        Scanner in = new Scanner(System.in);
+        int id = -1, index = -1;
+        
+        System.out.print("Enter id of product to delete for: ");
+        id = in.nextInt();
+
+        for (int i = 0; i < table.size(); i++){
+            if (table.get(i).id == id){
+                index = i;
+                break;
+            }
+        }
+        
+        in.close();
+
+        if (id == -1){
+            System.out.println("Error: product not found.");
+        } else {
+            table.remove(index);
+            System.out.println("1 row deleted.");
+        }
+    }
+
 
     public static void main(String[] args) {
         ArrayList<Row> table = new ArrayList<Row>();
@@ -89,5 +117,8 @@ class Controller{
         table.add(new Row(312, "Chai", 13.5)); // 0
         table.add(new Row(12, "Dates", 4.5)); // 1
         table.add(new Row(45, "broom", 12.30)); // 2
+
+        // create a menu system to allow the user to interact with the table
+        // call the methods above
     }
 }
